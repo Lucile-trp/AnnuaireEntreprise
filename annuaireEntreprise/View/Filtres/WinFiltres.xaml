@@ -1,0 +1,21 @@
+﻿<Window x:Class="annuaireEntreprise.View.Filtres.WinFiltres"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:annuaireEntreprise.View.Filtres"
+        mc:Ignorable="d"
+        Title="WinFiltres" Height="400" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Filtrer par..." FontSize="20" FontFamily="Arial" FontWeight="Bold" Grid.Row="0"></TextBlock>
+        <StackPanel Grid.Row="1" Margin="20,10,20,10">
+            <Label Content="Choisissez zone de filtre"></Label>
+            <ComboBox ItemsSource="{Binding FiltreValue}"></ComboBox>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,39 @@
+﻿<Window x:Class="annuaireEntreprise.View.Admin.AddNewEmploye"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:annuaireEntreprise.View.Admin"
+        mc:Ignorable="d"
+        Title="Ajouter un Employé" Height="500" Width="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Ajouter un Nouvel employé" Grid.Row="0" FontFamily="Arial" FontSize="25" Margin="20,10,0,0" FontWeight="Bold"></TextBlock>
+        <StackPanel Grid.Row="1" Margin="30,20,30,20" Background="#FFE8E8E8">
+            <StackPanel Margin="20,0,20,0">
+                <Label Content="Nom"></Label>
+                <TextBox x:Name="InputLastName"></TextBox>
+                <Label Content="Prénom"></Label>
+                <TextBox x:Name="InputFirstName"></TextBox>
+                <Label Content="Numéro de téléphone portable"></Label>
+                <TextBox x:Name="InputPhoneNumber"></TextBox>
+                <Label Content="Numéro de téléphone fixe"></Label>
+                <TextBox x:Name="InputFixeNumber"></TextBox>
+                <Label Content="Adresse E-mail"></Label>
+                <TextBox x:Name="InputEmail"></TextBox>
+                <Label Content="Service"></Label>
+                <ComboBox x:Name="ComboBoxServices" DisplayMemberPath="Name_service" SelectedValuePath="Id_service"/>
+                <Label Content="Site"></Label>
+                <ComboBox x:Name="ComboBoxSites" DisplayMemberPath="Name_site" SelectedValuePath="Id_site"/>
+            </StackPanel>
+
+            <Button x:Name="ButtonAddEmp" Margin="20" Width="80" Content="Ajouter" HorizontalAlignment="Center" Click="ButtonAddEmp_Click"></Button>
+            <Button Margin="20,10,20,10" Width="80" Content="Quitter" HorizontalAlignment="Center"></Button>
+
+        </StackPanel>
+        
+    </Grid>
+</Window>
