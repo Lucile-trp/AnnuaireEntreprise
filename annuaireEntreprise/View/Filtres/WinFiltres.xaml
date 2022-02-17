@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:annuaireEntreprise.View.Filtres"
         mc:Ignorable="d"
-        Title="WinFiltres" Height="400" Width="400">
+        Title="WinFiltres" Height="400" Width="400" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -14,7 +14,20 @@
         <TextBlock Text="Filtrer par..." FontSize="20" FontFamily="Arial" FontWeight="Bold" Grid.Row="0"></TextBlock>
         <StackPanel Grid.Row="1" Margin="20,10,20,10">
             <Label Content="Choisissez zone de filtre"></Label>
-            <ComboBox ItemsSource="{Binding FiltreValue}"></ComboBox>
+            <ComboBox x:Name="ComboBoxSelectedFiltre" DropDownClosed="ComboBoxSelectedFiltre_DropDownClosed"></ComboBox>
+            <StackPanel x:Name="StackpanelSecondComboBox">
+                <Label x:Name="LabelSecondComboBox" Content="Choisissez donnée de Filtrage"></Label>
+                <ComboBox x:Name="ComboBoxSecondChoice"/>
+            </StackPanel>
+            <StackPanel x:Name="StackpanelResearchName" Visibility="Hidden">
+                <Label x:Name="LabelNameInput" Content="Quel Nom recherchez-vous ?"></Label>
+                <TextBox x:Name="NameInput"/>
+            </StackPanel>
+
+            <Button Content="Confirmer" Width="80" Background="#FF0784CB" Margin="0,10,0,0" Click="Button_Click_1"></Button>
+            <Button Content="Quitter" Width="80" Background="#FFFB3939" Margin="0,10,0,0" Click="Button_Click"></Button>
+            
+
         </StackPanel>
 
     </Grid>

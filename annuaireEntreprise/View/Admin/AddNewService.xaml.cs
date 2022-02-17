@@ -50,7 +50,7 @@ namespace annuaireEntreprise.View.Admin
                     MessageBox.Show("Nouveau Service disponible", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
                     
 
-                } catch (Exception ex) {
+                } catch (Exception) {
                     MessageBox.Show("Une erreur s'est produite lors de la procédure. Veuillez réessayer.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                     
                 }

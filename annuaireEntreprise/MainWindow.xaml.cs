@@ -23,32 +23,8 @@ namespace annuaireEntreprise
 
 
 
-        private void ShowAnnuaire(object sender, RoutedEventArgs e)
-        {
-            MainContent.Content = new Annuaire(IsAdminAuth);
 
-
-        }
-
-
-        private void ShowFormEmployeAdd(object sender, RoutedEventArgs e)
-        {
-            if(IsAdminAuth == true)
-            {
-                var newWindows = new AddNewEmploye();
-                var result = newWindows.ShowDialog();
-                MainContent.Content = new Annuaire(IsAdminAuth);
-
-            } else
-            {
-                MessageBox.Show("Vous n'avez pas les droits", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            
-            
-
-        }
-
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.F5)
             {
@@ -56,8 +32,17 @@ namespace annuaireEntreprise
                 var result = newWindows.ShowDialog();
 
                 IsAdminAuth =  (result == true) ? true : false;
+                ButtonDisconnect.Visibility = (IsAdminAuth) ? Visibility.Visible : Visibility.Hidden;
                 MainContent.Content = new Annuaire(IsAdminAuth);
             }
+
+        }
+
+        private void ButtonDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            IsAdminAuth = false;
+            ButtonDisconnect.Visibility = (IsAdminAuth) ? Visibility.Visible : Visibility.Hidden;
+            MainContent.Content = new Annuaire(IsAdminAuth);
 
         }
     }

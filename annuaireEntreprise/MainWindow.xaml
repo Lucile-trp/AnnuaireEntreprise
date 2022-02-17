@@ -13,14 +13,12 @@
             <RowDefinition Height="10*" />
 
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Width="auto">
-            <Menu Width="auto">
-                <MenuItem Margin="10" Height="20" Header="Annuaire" Click="ShowAnnuaire" Background="Black" Foreground="White"></MenuItem>
-                <MenuItem Margin="10" Height="20" Header="FormAddEMp" Click="ShowFormEmployeAdd" Background="Black" Foreground="White"></MenuItem>
-            </Menu>
+        <Grid Grid.Row="0" Width="auto" Background="#FF0FA0F3">
+            <TextBlock Text="Annuaire Entreprise" FontSize="30"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <Button  x:Name="ButtonDisconnect" Content="Déconnexion" Visibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonDisconnect_Click" Margin="10" Background="#FFFF3939"></Button>
         </Grid>
         <Grid Grid.Row="1">
-            <Frame x:Name="MainContent" NavigationUIVisibility="Hidden" Background="#FF272727"></Frame>
+            <Frame x:Name="MainContent" NavigationUIVisibility="Hidden" Background="#FFD1CFCF"></Frame>
         </Grid>
         
 

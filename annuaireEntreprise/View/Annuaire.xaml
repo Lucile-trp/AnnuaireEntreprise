@@ -11,13 +11,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2*" />
             
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Filtres" FontSize="25" FontFamily="Arial" FontWeight="Bold" Margin="55,0,0,0" Grid.Row="0"></TextBlock>
-        <Grid Grid.Row="1">
+
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="0.8*"/>
@@ -25,28 +24,30 @@
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Filtrer" Width="120" HorizontalAlignment="Center" Margin="0,0,0,0" Height="70" Grid.Column="0" Background="#FF036BC1" Foreground="White" FontFamily="Arial" FontSize="20" FontWeight="Normal" FontStyle="Normal" BorderBrush="{x:Null}" Click="Button_Click">
+            <Button Content="Filtrer" Width="120" HorizontalAlignment="Center" Margin="10,0,0,0" Height="70" Grid.Column="0" Background="#FF2A9CFB" Foreground="White" FontFamily="Arial" FontSize="20" FontWeight="Normal" FontStyle="Normal" Click="Filtrer">
+
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonAddEmp" Grid.Column="1" Width="120" Height="70" Content=" Ajouter un salarié" Visibility="Hidden" Background="#FF036BC1" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddEmp_Click">
+
+            <Button x:Name="ButtonAddEmp" Grid.Column="1" Width="120" Height="70" Content=" Ajouter un salarié" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddEmp_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonAddSite" Grid.Column="2" Width="120" Height="70" Content=" Ajouter un Site" Visibility="Hidden" Background="#FF036BC1" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddSite_Click">
+            <Button x:Name="ButtonAddSite" Grid.Column="2" Width="120" Height="70" Content=" Ajouter un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddSite_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonAddService" Grid.Column="3" Width="120" Height="70" Content=" Ajouter un Service" Visibility="Hidden" Background="#FF036BC1" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddService_Click">
+            <Button x:Name="ButtonAddService" Grid.Column="3" Width="120" Height="70" Content=" Ajouter un Service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddService_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
         </Grid>
-        <DataGrid x:Name="DataGrid" Grid.Row="2" Background="#FFE2E2E2" IsReadOnly="True" Margin="45,15,45,15"  AutoGenerateColumns="False">
+        <DataGrid x:Name="DataGrid" Grid.Row="1" Background="#FFE2E2E2" IsReadOnly="True" Margin="45,15,45,15"  AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="1.5*" Header="Nom" Binding="{Binding Path=LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1.5*" Header="Prénom" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
@@ -55,12 +56,21 @@
                 <DataGridTextColumn Width="2*" Header="Adresse mail" Binding="{Binding Path=Email}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1.5*" Header="Services" Binding="{Binding Path=Service}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1*" Header="Site" Binding="{Binding Path=Site}"></DataGridTextColumn>
-                <DataGridTemplateColumn x:Name="DataGridColumnModifier" Header="Modifier"  Width="1*" Visibility="Visible">
+                <DataGridTemplateColumn x:Name="ColumnUpdate" Header="Modifier"  Width="1*" Visibility="Hidden">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="ModifyEmployee" FontSize="14">
-                                <TextBlock Text="modifier"></TextBlock>
-                                
+                            <Button Name="UpdateEmploye" FontSize="14" Background="#FFF1DE1F" Foreground="Black" Click="UpdateEmploye_Click">
+                                <TextBlock Text="Modifier" ></TextBlock>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="ColumnDelete" Header="Supprimer"  Width="1*" Visibility="Hidden">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="DeleteEmploye" FontSize="14" Background="#FFFF5725" Foreground="White" Click="DeleteEmploye_Click">
+                                <TextBlock Text="Supprimer"></TextBlock>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
