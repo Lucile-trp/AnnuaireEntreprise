@@ -39,8 +39,11 @@ namespace annuaireEntreprise.View
                 ButtonAddEmp.Visibility = Visibility.Visible;
                 ButtonAddService.Visibility = Visibility.Visible;
                 ButtonAddSite.Visibility = Visibility.Visible;
+                ButtonDeleteService.Visibility = Visibility.Visible;
+                ButtonDeleteSite.Visibility = Visibility.Visible;
                 ColumnUpdate.Visibility = Visibility.Visible;
                 ColumnDelete.Visibility = Visibility.Visible;
+
             }
         }
 
@@ -198,6 +201,19 @@ namespace annuaireEntreprise.View
             var newWindow = new UpdateEmp(context.Id, context.FirstName, context.LastName, context.Email, context.PhoneNumber, context.FixeNumber, context.Id_service, context.Id_site);
             newWindow.ShowDialog();
             BindDataGrid();
+        }
+
+        private void ButtonDeleteService_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new DeleteService();
+            newWindow.ShowDialog();
+        }
+
+        private void ButtonDeleteSite_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new DeleteSite();
+            newWindow.ShowDialog();
+
         }
     }
 }

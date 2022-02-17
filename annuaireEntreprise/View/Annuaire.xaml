@@ -22,6 +22,8 @@
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Filtrer" Width="120" HorizontalAlignment="Center" Margin="10,0,0,0" Height="70" Grid.Column="0" Background="#FF2A9CFB" Foreground="White" FontFamily="Arial" FontSize="20" FontWeight="Normal" FontStyle="Normal" Click="Filtrer">
@@ -42,6 +44,16 @@
                 </Button.Effect>
             </Button>
             <Button x:Name="ButtonAddService" Grid.Column="3" Width="120" Height="70" Content=" Ajouter un Service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddService_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="ButtonDeleteService" Grid.Column="4" Width="120" Height="70" Content="Supprimer un service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteService_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="ButtonDeleteSite" Grid.Column="5" Width="120" Height="70" Content="Supprimer un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteSite_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
