@@ -41,6 +41,8 @@ namespace annuaireEntreprise.View
                 ButtonAddSite.Visibility = Visibility.Visible;
                 ButtonDeleteService.Visibility = Visibility.Visible;
                 ButtonDeleteSite.Visibility = Visibility.Visible;
+                ButtonUpdateSite.Visibility = Visibility.Visible;
+                ButtonUpdateService.Visibility = Visibility.Visible;
                 ColumnUpdate.Visibility = Visibility.Visible;
                 ColumnDelete.Visibility = Visibility.Visible;
 
@@ -50,28 +52,23 @@ namespace annuaireEntreprise.View
         // Charge les données dans le DataGrid
         public void BindDataGrid()
         {
-            _context.Database.EnsureCreated();
-            var ListDB = _context.Employes.ToList();
-
-            List<EmployeReturn> EmpReturn = new List<EmployeReturn>();
-            foreach(var obj in ListDB)
+            using ( var db = new AnnuaireEntreriseContext())
             {
-                var site = _context.Sites.Where(s => s.Id_site == obj.Id_site).First();
-                var service = _context.Services.Where(s => s.Id_service == obj.Id_service).First();
+                var ListDB = db.Employes.ToList();
 
-                EmployeReturn emp = new EmployeReturn(
-                    obj.Id_employe, obj.FirstName_employe, obj.LastName_employe, obj.PhoneNumber_employe,obj.Email_employe, service.Id_service, service.Name_service , site.Id_site, site.Name_site, obj.FixeNumber_employe) ;
-                EmpReturn.Add(emp);
+                List<EmployeReturn> EmpReturn = new List<EmployeReturn>();
+                foreach (var obj in ListDB)
+                {
+                    var site = db.Sites.Where(s => s.Id_site == obj.Id_site).First();
+                    var service = db.Services.Where(s => s.Id_service == obj.Id_service).First();
 
+                    EmployeReturn emp = new EmployeReturn(
+                        obj.Id_employe, obj.FirstName_employe, obj.LastName_employe, obj.PhoneNumber_employe, obj.Email_employe, service.Id_service, service.Name_service, site.Id_site, site.Name_site, obj.FixeNumber_employe);
+                    EmpReturn.Add(emp);
+
+                }
+                DataGrid.ItemsSource = EmpReturn;
             }
-            DataGrid.ItemsSource = EmpReturn;
-        }
-
-        //Ajouter un employé /// ADMIN ONLY
-        private void ButtonAddEmp_Click(object sender, RoutedEventArgs e)
-        {
-            var newWindow = new AddNewEmploye();
-            var result = newWindow.ShowDialog();
         }
 
         // Filtre l'affichage du DATAGRID en fonction des conditions remplies
@@ -139,8 +136,6 @@ namespace annuaireEntreprise.View
                         EmpReturn.Add(emp);
                     }
                     DataGrid.ItemsSource = EmpReturn;
-
-
                 }
                 else
                 {
@@ -149,6 +144,14 @@ namespace annuaireEntreprise.View
 
             }
             
+        }
+
+        // Ajouter un employé /// ADMIN ONLY
+        private void ButtonAddEmp_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new AddNewEmploye();
+            var result = newWindow.ShowDialog();
+            BindDataGrid();
         }
 
         // Ajouter un Service /// ADMIN ONLY
@@ -200,19 +203,37 @@ namespace annuaireEntreprise.View
 
             var newWindow = new UpdateEmp(context.Id, context.FirstName, context.LastName, context.Email, context.PhoneNumber, context.FixeNumber, context.Id_service, context.Id_site);
             newWindow.ShowDialog();
+            DataGrid.ItemsSource = null;
             BindDataGrid();
         }
 
+        // Supprimer un Service /// ADMIN ONLY
         private void ButtonDeleteService_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new DeleteService();
             newWindow.ShowDialog();
         }
 
+        // Supprimer un Site /// ADMIN ONLY
         private void ButtonDeleteSite_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new DeleteSite();
             newWindow.ShowDialog();
+
+        }
+
+        private void ButtonUpdateSite_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new UpdateSite();
+            newWindow.ShowDialog();
+            BindDataGrid();
+        }
+
+        private void ButtonUpdateService_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new UpdateService();
+            newWindow.ShowDialog();
+            BindDataGrid();
 
         }
     }

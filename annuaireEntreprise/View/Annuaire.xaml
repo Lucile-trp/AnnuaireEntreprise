@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:annuaireEntreprise.View"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="Annuaire" Background="White">
 
 
@@ -24,7 +24,8 @@
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Filtrer" Width="120" HorizontalAlignment="Center" Margin="10,0,0,0" Height="70" Grid.Column="0" Background="#FF2A9CFB" Foreground="White" FontFamily="Arial" FontSize="20" FontWeight="Normal" FontStyle="Normal" Click="Filtrer">
 
@@ -33,27 +34,37 @@
                 </Button.Effect>
             </Button>
 
-            <Button x:Name="ButtonAddEmp" Grid.Column="1" Width="120" Height="70" Content=" Ajouter un salarié" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddEmp_Click">
+            <Button x:Name="ButtonAddEmp" Grid.Column="1" Width="130" Height="70" Content=" Ajouter un salarié" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddEmp_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonAddSite" Grid.Column="2" Width="120" Height="70" Content=" Ajouter un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddSite_Click">
+            <Button x:Name="ButtonAddSite" Grid.Column="2" Width="130" Height="70" Content=" Ajouter un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddSite_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonAddService" Grid.Column="3" Width="120" Height="70" Content=" Ajouter un Service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddService_Click">
+            <Button x:Name="ButtonAddService" Grid.Column="3" Width="130" Height="70" Content=" Ajouter un Service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonAddService_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonDeleteService" Grid.Column="4" Width="120" Height="70" Content="Supprimer un service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteService_Click">
+            <Button x:Name="ButtonDeleteService" Grid.Column="4" Width="130" Height="70" Content="Supprimer un service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteService_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="ButtonDeleteSite" Grid.Column="5" Width="120" Height="70" Content="Supprimer un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteSite_Click">
+            <Button x:Name="ButtonDeleteSite" Grid.Column="5" Width="130" Height="70" Content="Supprimer un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonDeleteSite_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="ButtonUpdateSite" Grid.Column="6" Width="130" Height="70" Content="Modifier un Site" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonUpdateSite_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="ButtonUpdateService" Grid.Column="7" Width="130" Height="70" Content="Modifier un Service" Visibility="Hidden" Background="#FFD3016A" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Normal" FontStyle="Normal" Click="ButtonUpdateService_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-150" Opacity="0.3" Color="#FF330070" ShadowDepth="7"/>
                 </Button.Effect>
