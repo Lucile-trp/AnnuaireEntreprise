@@ -43,8 +43,8 @@ namespace annuaireEntreprise.View.Admin
             _context.Database.EnsureCreated();
             // On regarde si des employés y sont rattachés.
 
-            var ListEmp = _context.Employes.Where(o => o.Id_service == choice).SingleOrDefault();
-            if(ListEmp != null)
+            List<Employes> ListEmp = _context.Employes.Where(o => o.Id_service == choice).ToList();
+            if(ListEmp.Count < 0)
             {
                 MessageBox.Show("impossible de supprimer ce Service car des employés y sont rattachés.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             } else

@@ -1,4 +1,5 @@
 ﻿using annuaireEntreprise.DB.Model;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -34,8 +35,8 @@ namespace annuaireEntreprise.View.Admin
             _context.Database.EnsureCreated();
             // On regarde si des employés y sont rattachés.
 
-            var ListEmp = _context.Employes.Where(o => o.Id_site == choice).SingleOrDefault();
-            if (ListEmp != null)
+            List<Employes> ListEmp = _context.Employes.Where(o => o.Id_site == choice).ToList();
+            if (ListEmp.Count() > 0)
             {
                 MessageBox.Show("impossible de supprimer ce Site car des employés y sont rattachés.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }

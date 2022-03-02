@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace annuaireEntreprise.View.Admin
 {
-    /// <summary>
-    /// Logique d'interaction pour UpdateService.xaml
-    /// </summary>
     public partial class UpdateService : Window
     {
         private readonly AnnuaireEntreriseContext _context = new AnnuaireEntreriseContext();
@@ -36,21 +33,29 @@ namespace annuaireEntreprise.View.Admin
         {
             string choice = ValueInput.Text;
             int id = (int)comboBoxUpdateService.SelectedValue;
-            try
+            if(choice != "")
             {
-                _context.Database.EnsureCreated();
-                Services services = _context.Services.Where(o => o.Id_service == id).SingleOrDefault();
-                services.Name_service = choice;
-                _context.SaveChanges();
-                MessageBox.Show("Le Service à bien été Modifié.", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
-                DialogResult = true;
+                try
+                {
+                    _context.Database.EnsureCreated();
+                    Services services = _context.Services.Where(o => o.Id_service == id).SingleOrDefault();
+                    services.Name_service = choice;
+                    _context.SaveChanges();
+                    MessageBox.Show("Le Service à bien été Modifié.", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DialogResult = true;
 
-            }
-            catch (Exception)
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Une Erreur s'est produite pendant la procédure", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
+            } else
             {
-                MessageBox.Show("Une Erreur s'est produite pendant la procédure", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Veuillez renseigner un nom de Service Valide.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
 
         }
 

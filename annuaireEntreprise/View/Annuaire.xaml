@@ -74,8 +74,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="1.5*" Header="Nom" Binding="{Binding Path=LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1.5*" Header="Prénom" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
-                <DataGridTextColumn Width="1.3*" Header="Téléphone fixe" Binding="{Binding Path=PhoneNumber}"></DataGridTextColumn>
-                <DataGridTextColumn Width="1.4*" Header="Téléphone portable" Binding="{Binding Path=FixeNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Width="1.3*" Header="Téléphone portable" Binding="{Binding Path=PhoneNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Width="1.4*" Header="Téléphone fixe" Binding="{Binding Path=FixeNumber}"></DataGridTextColumn>
                 <DataGridTextColumn Width="2*" Header="Adresse mail" Binding="{Binding Path=Email}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1.5*" Header="Services" Binding="{Binding Path=Service}"></DataGridTextColumn>
                 <DataGridTextColumn Width="1*" Header="Site" Binding="{Binding Path=Site}"></DataGridTextColumn>

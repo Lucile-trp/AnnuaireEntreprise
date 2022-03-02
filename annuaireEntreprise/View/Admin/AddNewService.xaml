@@ -11,7 +11,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Ajouter un nouveau Service"></TextBlock>
+        <TextBlock Grid.Row="0" Text="Ajouter un nouveau Service" FontFamily="Arial" FontSize="25" Margin="25,20,0,0" FontWeight="Bold"  Foreground="#FF2A9CFB"></TextBlock>
         <TextBox x:Name="InputServiceText" Grid.Row="2" Margin="20" Height="30" VerticalAlignment="Top"></TextBox>
         <Button  Grid.Row="2" Margin="70" Width="80" Height="30" Content="Valider" VerticalAlignment="Top" Click="Button_Click"></Button>
         <Button x:Name="ButtonLeave"  Grid.Row="2" Margin="120,120" Width="80" Height="30" Content="Quitter" VerticalAlignment="Top" Click="ButtonLeave_Click_1" ></Button>

@@ -36,22 +36,31 @@ namespace annuaireEntreprise.View.Admin
         private void ButtonValider_Click(object sender, RoutedEventArgs e)
         {
             string choice = ValueInput.Text;
-            int id = (int) comboBoxSiteUpdate.SelectedValue;
-
-            try
+            if(choice != "")
             {
-                _context.Database.EnsureCreated();
-                Sites site = _context.Sites.Where(o => o.Id_site == id).SingleOrDefault();
-                site.Name_site = choice;
-                _context.SaveChanges();
-                MessageBox.Show("Le Site à bien été Modifié.", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
-                DialogResult = true;
+                int id = (int)comboBoxSiteUpdate.SelectedValue;
 
-            }catch(Exception)
+                try
+                {
+                    _context.Database.EnsureCreated();
+                    Sites site = _context.Sites.Where(o => o.Id_site == id).SingleOrDefault();
+                    site.Name_site = choice;
+                    _context.SaveChanges();
+                    MessageBox.Show("Le Site à bien été Modifié.", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DialogResult = true;
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Une Erreur s'est produite pendant la procédure", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
+            } else
             {
-                MessageBox.Show("Une Erreur s'est produite pendant la procédure", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Veuillez renseigner un nom de Site Valide.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
 
         }
 

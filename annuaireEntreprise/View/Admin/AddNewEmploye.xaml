@@ -11,7 +11,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Ajouter un Nouvel employé" Grid.Row="0" FontFamily="Arial" FontSize="25" Margin="20,10,0,0" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="Ajouter un Nouvel employé" Grid.Row="0" FontFamily="Arial" FontSize="25" Margin="25,20,0,0" FontWeight="Bold"  Foreground="#FF2A9CFB"></TextBlock>
         <StackPanel Grid.Row="1" Margin="30,20,30,20" Background="#FFE8E8E8">
             <StackPanel Margin="20,0,20,0">
                 <Label Content="Nom"></Label>

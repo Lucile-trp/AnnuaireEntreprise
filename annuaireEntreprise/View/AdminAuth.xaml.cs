@@ -28,6 +28,8 @@ namespace annuaireEntreprise.View
             else
             {
                 MessageBox.Show("Mot de passe incorrect", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                textBoxPassword.Clear();
+                textBoxUsername.Clear();
             }
         }
 

@@ -21,6 +21,7 @@ namespace annuaireEntreprise
             MainContent.Content = new Annuaire(IsAdminAuth);
         }
 
+        // Ouverture de la page de connexion Administrateur
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.F5)
@@ -35,6 +36,7 @@ namespace annuaireEntreprise
 
         }
 
+        // Se déconnecter // ADMIN ONLY
         private void ButtonDisconnect_Click(object sender, RoutedEventArgs e)
         {
             IsAdminAuth = false;
